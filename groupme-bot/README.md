@@ -2,6 +2,15 @@
 My bot is name `AnhBot`. The bot can interact with different messages from the users, either only me (creator of the bot) or other users, depending on the message. 
 However, to avoid spamming the group chat, the bot is developed to avoid interacting with other bots or the system.
 
+[IMPORTANT] Environment variables:
+```
+BOT_ID = "" # your GroupMe BotID here!
+GROUP_ID = "98324520" # our GroupMe chat id
+ACCESS_TOKEN = "" # your GroupMe access token here!
+USER_ID = "" # your GroupMe UserID here!
+API_KEY_GIPHY = "Ll4XgjMpndM1njEb3ZrEbHvtZB9tIrzj" # this is the API Key to call GIPHY. DO NOT CHANGE THIS!
+```
+
 To run the bot, simply go to `groupme-bot` directory (same directory of this README.md) and run the command `python3 bot.py`. 
 Then, you can start interacting with the bot on GroupMe.
 
