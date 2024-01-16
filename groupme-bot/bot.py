@@ -46,25 +46,25 @@ def process_message(message):
     user_id = message['user_id']
     # print(message)
 
-    if sender_type == "user" and "good morning" in text: # response to 'good morning' from ANY user
+    if sender_type == "user" and ("hello bot" in text or "hi bot" in text): # response to 'hello bot' or 'hi bot' message from ANY user
+        send_message("This is Anh's bot! How can I help you today?")
+    elif sender_type == "user" and "good morning" in text: # response to 'good morning' from ANY user
         send_message(f"Good morning, {name}!")
     elif sender_type == "user" and "good night" in text:   # response to 'good night' from ANY user
         send_message(f"Good night, {name}!")
     # i.e. responding to a specific message (note that this checks if "hello bot" is anywhere in the message, not just the beginning)
-    elif user_id == USER_ID: # response to ONLY my message
-        if "hello bot" in text or "hi bot" in text: # response to 'hello bot' message ONLY if it is from me
-            send_message("This is Anh's bot! How can I help you today?")
-        elif "shutdown" in text: # response to 'shutdown' message ONLY if it is from me
-            send_message("Please use Ctrl+C to shut me down!")
-        else: # response to any other message by querying the GIPHY and return a gif ONLY if the message is from me
-            GIPHY_params = {
-                "api_key" : API_KEY_GIPHY,
-                "q" : text,
-                "offset" : random.randint(0, 10)
-            }
-            r = requests.get("http://api.giphy.com/v1/gifs/search", params=GIPHY_params)
-            url = r.json()["data"][0]["bitly_gif_url"]
-            send_message(url)
+    elif user_id == USER_ID and "shutdown" in text: # response to ONLY my message
+        # response to 'shutdown' message ONLY if it is from me
+        send_message("Please use Ctrl+C to shut me down!")
+    elif sender_type == "user": # response to any other message by querying the GIPHY and return a gif ONLY if the message is from me
+        GIPHY_params = {
+            "api_key" : API_KEY_GIPHY,
+            "q" : text,
+            "offset" : random.randint(0, 10)
+        }
+        r = requests.get("http://api.giphy.com/v1/gifs/search", params=GIPHY_params)
+        url = r.json()["data"][0]["bitly_gif_url"]
+        send_message(url)
 
     # Update the last message ID to this message's ID
     LAST_MESSAGE_ID = message["id"]
