@@ -5,9 +5,11 @@ However, to avoid spamming the group chat, the bot is developed to avoid interac
 [IMPORTANT] Environment variables in `.env`:
 ```
 BOT_ID = "" # your GroupMe BotID here!
-GROUP_ID = "98324520" # our GroupMe chat id
 ACCESS_TOKEN = "" # your GroupMe access token here!
 USER_ID = "" # your GroupMe UserID here!
+
+# DO NOT CHANGE ANYTHING BELOW
+GROUP_ID = "98324520" # our GroupMe chat id
 API_KEY_GIPHY = "Ll4XgjMpndM1njEb3ZrEbHvtZB9tIrzj" # this is the API Key to call GIPHY. DO NOT CHANGE THIS!
 ```
 
