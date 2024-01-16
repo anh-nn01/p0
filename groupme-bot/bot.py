@@ -46,9 +46,12 @@ def process_message(message):
     user_id = message['user_id']
     # print(message)
 
-    
+    if sender_type == "user" and "good morning" in text: # response to 'good morning' from ANY user
+        send_message(f"Good morning, {name}!")
+    elif sender_type == "user" and "good night" in text:   # response to 'good night' from ANY user
+        send_message(f"Good night, {name}!")
     # i.e. responding to a specific message (note that this checks if "hello bot" is anywhere in the message, not just the beginning)
-    if user_id == USER_ID: # response to ONLY my message
+    elif user_id == USER_ID: # response to ONLY my message
         if "hello bot" in text or "hi bot" in text: # response to 'hello bot' message ONLY if it is from me
             send_message("This is Anh's bot! How can I help you today?")
         elif "shutdown" in text: # response to 'shutdown' message ONLY if it is from me
@@ -62,11 +65,6 @@ def process_message(message):
             r = requests.get("http://api.giphy.com/v1/gifs/search", params=GIPHY_params)
             url = r.json()["data"][0]["bitly_gif_url"]
             send_message(url)
-
-    if sender_type == "user" and "good morning" in text: # response to 'good morning' from ANY user
-        send_message(f"Good morning, {name}!")
-    elif sender_type == "user" and "good night" in text:   # response to 'good night' from ANY user
-        send_message(f"Good night, {name}!")
 
     # Update the last message ID to this message's ID
     LAST_MESSAGE_ID = message["id"]
