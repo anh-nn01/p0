@@ -2,7 +2,7 @@
 My bot is name `AnhBot`. The bot can interact with different messages from the users, either only me (creator of the bot) or other users, depending on the message. 
 However, to avoid spamming the group chat, the bot is developed to avoid interacting with other bots or the system.
 
-[IMPORTANT] Environment variables:
+[IMPORTANT] Environment variables in `.env`:
 ```
 BOT_ID = "" # your GroupMe BotID here!
 GROUP_ID = "98324520" # our GroupMe chat id
