@@ -1,3 +1,4 @@
+# Outline features of Anh's Bot on GroupMe
 My bot is name `AnhBot`. The bot can interact with different messages from the users, either only me (creator of the bot) or other users, depending on the message. 
 However, to avoid spamming the group chat, the bot is developed to avoid interacting with other bots or the system.
 
